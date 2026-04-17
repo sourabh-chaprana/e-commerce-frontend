@@ -22,6 +22,10 @@ import AdminLayout from './pages/admin/AdminLayout';
 import Dashboard from './pages/admin/Dashboard';
 import AdminProducts from './pages/admin/AdminProducts';
 import AdminOrders from './pages/admin/AdminOrders';
+import AdminShipments from './pages/admin/AdminShipments';
+import AdminHotSale from './pages/admin/AdminHotSale';
+import ShippingCalculator from './pages/ShippingCalculator';
+import TrackingPage from './pages/TrackingPage';
 
 const PublicLayout = ({ children }) => (
   <>
@@ -64,6 +68,10 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
 
+                {/* Shipping public routes */}
+                <Route path="/shipping" element={<PublicLayout><ShippingCalculator /></PublicLayout>} />
+                <Route path="/track" element={<PublicLayout><TrackingPage /></PublicLayout>} />
+
                 {/* Protected user routes */}
                 <Route path="/cart" element={<ProtectedRoute><PublicLayout><Cart /></PublicLayout></ProtectedRoute>} />
                 <Route path="/orders" element={<ProtectedRoute><PublicLayout><Orders /></PublicLayout></ProtectedRoute>} />
@@ -73,6 +81,8 @@ function App() {
                   <Route index element={<Dashboard />} />
                   <Route path="products" element={<AdminProducts />} />
                   <Route path="orders" element={<AdminOrders />} />
+                  <Route path="shipments" element={<AdminShipments />} />
+                  <Route path="hotsale" element={<AdminHotSale />} />
                 </Route>
               </Routes>
             </div>

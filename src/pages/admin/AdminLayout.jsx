@@ -4,6 +4,8 @@ import {
   LayoutDashboard,
   Package,
   ShoppingBag,
+  Truck,
+  Flame,
   LogOut,
   Menu,
   X,
@@ -17,6 +19,8 @@ const NAV_ITEMS = [
   { to: '/admin', icon: LayoutDashboard, label: 'Dashboard', end: true },
   { to: '/admin/products', icon: Package, label: 'Products' },
   { to: '/admin/orders', icon: ShoppingBag, label: 'Orders' },
+  { to: '/admin/shipments', icon: Truck, label: 'Shipments' },
+  { to: '/admin/hotsale',   icon: Flame, label: 'Hot Sale' },
 ];
 
 const SidebarContent = ({ onNavClick, onLogout, user }) => (

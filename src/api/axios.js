@@ -13,11 +13,18 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// Handle 401 globally
+// Handle 401 globally — but NOT for auth endpoints (login/register),
+// otherwise a wrong-password response would trigger a hard page reload
+// before the catch block in the form can show the toast.
+const AUTH_ENDPOINTS = ['/auth/login', '/auth/register'];
+
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401) {
+    const url = error.config?.url || '';
+    const isAuthCall = AUTH_ENDPOINTS.some((p) => url.includes(p));
+
+    if (error.response?.status === 401 && !isAuthCall) {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
       window.location.href = '/login';

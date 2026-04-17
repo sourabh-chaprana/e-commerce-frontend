@@ -10,6 +10,8 @@ import {
   LayoutDashboard,
   ChevronDown,
   Heart,
+  Truck,
+  Calculator,
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
@@ -22,6 +24,7 @@ const NAV_LINKS = [
   { to: '/?category=Women', label: 'Women' },
   { to: '/?category=Kids', label: 'Kids' },
   { to: '/?category=Sale', label: 'Sale', highlight: true },
+  { to: '/shipping', label: 'Shipping', icon: Calculator },
 ];
 
 const Navbar = () => {
@@ -68,16 +71,17 @@ const Navbar = () => {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-1">
-            {NAV_LINKS.map(({ to, label, highlight }) => (
+            {NAV_LINKS.map(({ to, label, highlight, icon: Icon }) => (
               <Link
                 key={label}
                 to={to}
-                className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
+                className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
                   highlight
                     ? 'text-rose-500 hover:text-rose-600 hover:bg-rose-50'
                     : 'text-gray-600 hover:text-indigo-600 hover:bg-indigo-50'
                 }`}
               >
+                {Icon && <Icon size={13} />}
                 {label}
               </Link>
             ))}
@@ -162,6 +166,13 @@ const Navbar = () => {
                     >
                       <Package size={14} /> My Orders
                     </Link>
+                    <Link
+                      to="/track"
+                      onClick={() => setUserMenuOpen(false)}
+                      className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors"
+                    >
+                      <Truck size={14} /> Track Order
+                    </Link>
                     {user.role === 'ADMIN' && (
                       <Link
                         to="/admin"
@@ -233,6 +244,14 @@ const Navbar = () => {
             >
               <Heart size={15} className={wishlist.length > 0 ? 'fill-rose-500 text-rose-500' : ''} />
               Wishlist {wishlist.length > 0 && `(${wishlist.length})`}
+            </Link>
+            <Link
+              to="/track"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-xl transition-colors"
+            >
+              <Truck size={15} />
+              Track Order
             </Link>
           </div>
         )}

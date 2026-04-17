@@ -5,6 +5,7 @@ import { Search, X, Truck, Shield, TrendingUp, Sparkles } from 'lucide-react';
 import api from '../api/axios';
 import ProductCard from '../components/ProductCard';
 import LoadingSkeleton from '../components/LoadingSkeleton';
+import HotSaleSlider from '../components/HotSaleSlider';
 
 const CATEGORIES = ['All', 'Men', 'Women', 'Kids', 'Accessories', 'Sale'];
 
@@ -149,6 +150,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* ===== HOT SALE SLIDER ===== */}
+      <HotSaleSlider />
 
       {/* ===== PRODUCTS ===== */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
