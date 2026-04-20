@@ -24,6 +24,7 @@ import AdminProducts from './pages/admin/AdminProducts';
 import AdminOrders from './pages/admin/AdminOrders';
 import AdminShipments from './pages/admin/AdminShipments';
 import AdminHotSale from './pages/admin/AdminHotSale';
+import AdminHeroSlides from './pages/admin/AdminHeroSlides';
 import ShippingCalculator from './pages/ShippingCalculator';
 import TrackingPage from './pages/TrackingPage';
 
@@ -83,6 +84,7 @@ function App() {
                   <Route path="orders" element={<AdminOrders />} />
                   <Route path="shipments" element={<AdminShipments />} />
                   <Route path="hotsale" element={<AdminHotSale />} />
+                  <Route path="heroslides" element={<AdminHeroSlides />} />
                 </Route>
               </Routes>
             </div>
