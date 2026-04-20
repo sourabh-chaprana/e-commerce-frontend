@@ -11,6 +11,7 @@ import {
   X,
   TrendingUp,
   ExternalLink,
+  MonitorPlay,
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import toast from 'react-hot-toast';
@@ -20,7 +21,8 @@ const NAV_ITEMS = [
   { to: '/admin/products', icon: Package, label: 'Products' },
   { to: '/admin/orders', icon: ShoppingBag, label: 'Orders' },
   { to: '/admin/shipments', icon: Truck, label: 'Shipments' },
-  { to: '/admin/hotsale',   icon: Flame, label: 'Hot Sale' },
+  { to: '/admin/hotsale',    icon: Flame,        label: 'Hot Sale' },
+  { to: '/admin/heroslides', icon: MonitorPlay,  label: 'Hero Slides' },
 ];
 
 const SidebarContent = ({ onNavClick, onLogout, user }) => (
